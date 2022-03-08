@@ -28,18 +28,19 @@ class CourseCell: UITableViewCell {
 //    }
 //
 //
-//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-//            super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        
-    override convenience init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        self.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        
+    
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         // cell customization
-        textLabel?.font = UIFont.boldSystemFont(ofSize: 24)
-        textLabel?.numberOfLines = 0
-        detailTextLabel?.textColor = .black
-        detailTextLabel?.font = UIFont.systemFont(ofSize: 20, weight: .light)
+                textLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+                textLabel?.numberOfLines = 0
+                detailTextLabel?.textColor = .black
+                detailTextLabel?.font = UIFont.systemFont(ofSize: 20, weight: .light)
+           
     }
+        
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
