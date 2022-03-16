@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let window = UIWindow(frame: UIScreen.main.bounds)
 //        window.rootViewController = UINavigationController(rootViewController: CoursesController()) // in storyboard to programmatic youtube tutorial
-        window.rootViewController = CustomNavigationController(rootViewController: CoursesController()) //from orginal code
+        window.rootViewController = CustomNavigationController(rootViewController: CoursesControllerMVC()) //from orginal code
         window.makeKeyAndVisible() //from orginal code
         self.window = window
         

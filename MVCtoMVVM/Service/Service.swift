@@ -10,7 +10,7 @@ import Foundation
 class Service: NSObject {
     static let shared = Service()
     
-    func fetchCourses(completion: @escaping ([Course]?, Error?) -> ()) {
+    func fetchCourses(completion: @escaping ([CourseMVC]?, Error?) -> ()) {
         let urlString = "https://api.letsbuildthatapp.com/jsondecodable/courses"
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
@@ -24,7 +24,7 @@ class Service: NSObject {
             
             guard let data = data else { return }
             do {
-                let courses = try JSONDecoder().decode([Course].self, from: data)
+                let courses = try JSONDecoder().decode([CourseMVC].self, from: data)
                 DispatchQueue.main.async {
                     completion(courses, nil)
                 }

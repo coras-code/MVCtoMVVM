@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Course: Decodable {
+struct CourseMVC: Decodable {
     let id: Int
     let name: String
     let numberOfLessons: Int

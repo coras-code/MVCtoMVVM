@@ -9,8 +9,8 @@ import Foundation
 
 import UIKit
 import Foundation
-class CourseCell: UITableViewCell {
-    var course: Course! {
+class CourseCellMVC: UITableViewCell {
+    var course: CourseMVC! {
             didSet {
                 textLabel?.text = course.name
     

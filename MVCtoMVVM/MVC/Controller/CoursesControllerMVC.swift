@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class CoursesController: UITableViewController {
+class CoursesControllerMVC: UITableViewController {
 
-    var courses = [Course]()
+    var courses = [CourseMVC]()
     let cellId = "cellId"
 
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ class CoursesController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CourseCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CourseCellMVC
         let course = courses[indexPath.row]
         cell.course = course //unsure
 
@@ -50,7 +50,7 @@ class CoursesController: UITableViewController {
     }
 
     fileprivate func setupTableView() {
-        tableView.register(CourseCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(CourseCellMVC.self, forCellReuseIdentifier: cellId)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         tableView.separatorColor = .mainTextBlue
         tableView.backgroundColor = UIColor.rgb(r: 12, g: 47, b: 57)
