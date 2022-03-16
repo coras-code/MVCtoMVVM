@@ -16,6 +16,10 @@
 		43835B4027D7C95C0060BD15 /* CoursesControllerMVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43835B3827D7C95C0060BD15 /* CoursesControllerMVC.swift */; };
 		43835B4227D7C95C0060BD15 /* CourseCellMVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43835B3C27D7C95C0060BD15 /* CourseCellMVC.swift */; };
 		43835B4327D7C95C0060BD15 /* CourseMVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43835B3E27D7C95C0060BD15 /* CourseMVC.swift */; };
+		43C26F8727E2538E00E32A27 /* CourseViewModelMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C26F8027E2538E00E32A27 /* CourseViewModelMVVM.swift */; };
+		43C26F8827E2538E00E32A27 /* CoursesControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C26F8227E2538E00E32A27 /* CoursesControllerMVVM.swift */; };
+		43C26F8927E2538E00E32A27 /* CourseMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C26F8427E2538E00E32A27 /* CourseMVVM.swift */; };
+		43C26F8A27E2538E00E32A27 /* CourseCellMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C26F8627E2538E00E32A27 /* CourseCellMVVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		43835B3827D7C95C0060BD15 /* CoursesControllerMVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesControllerMVC.swift; sourceTree = "<group>"; };
 		43835B3C27D7C95C0060BD15 /* CourseCellMVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCellMVC.swift; sourceTree = "<group>"; };
 		43835B3E27D7C95C0060BD15 /* CourseMVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseMVC.swift; sourceTree = "<group>"; };
+		43C26F8027E2538E00E32A27 /* CourseViewModelMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewModelMVVM.swift; sourceTree = "<group>"; };
+		43C26F8227E2538E00E32A27 /* CoursesControllerMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesControllerMVVM.swift; sourceTree = "<group>"; };
+		43C26F8427E2538E00E32A27 /* CourseMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseMVVM.swift; sourceTree = "<group>"; };
+		43C26F8627E2538E00E32A27 /* CourseCellMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCellMVVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				43C26F6027E24EDF00E32A27 /* MVC */,
+				43C26F7E27E2538E00E32A27 /* MVVM */,
 				43835B3527D7C95C0060BD15 /* Service */,
 				43489C9627D7BD690086C314 /* AppDelegate.swift */,
 				43489C9827D7BD690086C314 /* SceneDelegate.swift */,
@@ -114,6 +123,49 @@
 				43835B3727D7C95C0060BD15 /* Controller */,
 			);
 			path = MVC;
+			sourceTree = "<group>";
+		};
+		43C26F7E27E2538E00E32A27 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				43C26F7F27E2538E00E32A27 /* ViewModel */,
+				43C26F8127E2538E00E32A27 /* Controller */,
+				43C26F8327E2538E00E32A27 /* Model */,
+				43C26F8527E2538E00E32A27 /* View */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		43C26F7F27E2538E00E32A27 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				43C26F8027E2538E00E32A27 /* CourseViewModelMVVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		43C26F8127E2538E00E32A27 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				43C26F8227E2538E00E32A27 /* CoursesControllerMVVM.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		43C26F8327E2538E00E32A27 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43C26F8427E2538E00E32A27 /* CourseMVVM.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43C26F8527E2538E00E32A27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43C26F8627E2538E00E32A27 /* CourseCellMVVM.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,10 +240,14 @@
 				43835B4327D7C95C0060BD15 /* CourseMVC.swift in Sources */,
 				43489C9B27D7BD690086C314 /* ViewController.swift in Sources */,
 				43835B3F27D7C95C0060BD15 /* Service.swift in Sources */,
+				43C26F8827E2538E00E32A27 /* CoursesControllerMVVM.swift in Sources */,
 				43489C9727D7BD690086C314 /* AppDelegate.swift in Sources */,
 				43835B4227D7C95C0060BD15 /* CourseCellMVC.swift in Sources */,
+				43C26F8927E2538E00E32A27 /* CourseMVVM.swift in Sources */,
+				43C26F8A27E2538E00E32A27 /* CourseCellMVVM.swift in Sources */,
 				43489C9927D7BD690086C314 /* SceneDelegate.swift in Sources */,
 				43835B4027D7C95C0060BD15 /* CoursesControllerMVC.swift in Sources */,
+				43C26F8727E2538E00E32A27 /* CourseViewModelMVVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
