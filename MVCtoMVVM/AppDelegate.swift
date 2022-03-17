@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MVCtoMVVM
 //
-//  Created by M_931521 on 08/03/2022.
+//  Created by M_931521 on 17/03/2022.
 //
 
 import UIKit
@@ -10,21 +10,10 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let window = UIWindow(frame: UIScreen.main.bounds)
-//        window.rootViewController = UINavigationController(rootViewController: CoursesController()) // in storyboard to programmatic youtube tutorial
-        window.rootViewController = CustomNavigationController(rootViewController: CoursesController()) //from orginal code
-        window.makeKeyAndVisible() //from orginal code
-        self.window = window
-        
-        //orginal code
-//        window = UIWindow()
-//        window?.makeKeyAndVisible()
-//        window?.rootViewController = CustomNavigationController(rootViewController: CoursesController())
-        
         return true
     }
 

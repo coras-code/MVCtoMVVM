@@ -2,103 +2,26 @@
 //  Service.swift
 //  MVCtoMVVM
 //
-//  Created by M_931521 on 08/03/2022.
+//  Created by M_931521 on 17/03/2022.
 //
 
 import Foundation
 
-class Service: NSObject {
+struct Service {
     static let shared = Service()
     
     func fetchCourses(completion: @escaping ([Course]?, Error?) -> ()) {
-        let urlString = "https://api.letsbuildthatapp.com/jsondecodable/courses"
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-            if let err = err {
-                completion(nil, err)
-                print("Failed to fetch courses:", err)
-                return
-            }
-            
-            // check response
-            
-            guard let data = data else { return }
-            do {
-                let courses = try JSONDecoder().decode([Course].self, from: data)
-                DispatchQueue.main.async {
-                    completion(courses, nil)
-                }
-            } catch let jsonErr {
-                print("Failed to decode:", jsonErr)
-            }
-            }.resume()
+        completion(courses, nil)
     }
+    
+    //look into result types
+    //    func fetchCourses(_ completion: @escaping (Result<[Course], Error>) -> ()) {
+    //            completion(.success(data)) //result types
+    //        }
 }
 
-//
-//  Service.swift
-//  MVCtoMVVM
-//
-//  Created by M_931521 on 08/03/2022.
-//
-
-//import Foundation
-//
-//struct Service {
-//    static let shared = Service()
-//    
-//    func fetchCourses(completion: @escaping ([Course]?, Error?) -> ()) {
-//        completion(courses, nil)
-//    }
-//    
-//    //    func fetchCourses(_ completion: @escaping (Result<[Course], Error>) -> ()) { //look into result types
-//    //            completion(.success(data)) //result types
-//    //        }
-//}
-//
-//let courses = [
-//    Course(id: 23, name: "Javascript Course", numberOfLessons: 56),
-//    Course(id: 43, name: "Swift Course", numberOfLessons: 12),
-//    Course(id: 56, name: "Python Course", numberOfLessons: 109),
-//    ]
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-////class Service: NSObject {
-////    static let shared = Service()
-////
-////    func fetchCourses(completion: @escaping ([Course]?, Error?) -> ()) {
-////        let urlString = "https://api.letsbuildthatapp.com/jsondecodable/courses"
-////        guard let url = URL(string: urlString) else { return }
-////        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-////            if let err = err {
-////                completion(nil, err)
-////                print("Failed to fetch courses:", err)
-////                return
-////            }
-////
-////            // check response
-////
-////            guard let data = data else { return }
-////            do {
-////                let courses = try JSONDecoder().decode([Course].self, from: data)
-////                DispatchQueue.main.async {
-////                    completion(courses, nil)
-////                }
-////            } catch let jsonErr {
-////                print("Failed to decode:", jsonErr)
-////            }
-////            }.resume()
-////    }
-////}
+let courses = [
+    Course(id: 23, name: "Javascript Course", numberOfLessons: 56),
+    Course(id: 43, name: "Swift Course", numberOfLessons: 12),
+    Course(id: 56, name: "Python Course", numberOfLessons: 109),
+    ]
