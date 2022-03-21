@@ -11,9 +11,9 @@
 		434BFDA327E37DBA00E4E40D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDA227E37DBA00E4E40D /* SceneDelegate.swift */; };
 		434BFDAA27E37DBC00E4E40D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434BFDA927E37DBC00E4E40D /* Assets.xcassets */; };
 		434BFDAD27E37DBC00E4E40D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 434BFDAB27E37DBC00E4E40D /* LaunchScreen.storyboard */; };
-		434BFDD527E37F5400E4E40D /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDD427E37F5400E4E40D /* Course.swift */; };
+		434BFDD527E37F5400E4E40D /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDD427E37F5400E4E40D /* Bird.swift */; };
 		434BFDDA27E37FD200E4E40D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 434BFDD927E37FD200E4E40D /* Main.storyboard */; };
-		434BFDE027E3800500E4E40D /* CoursesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDDF27E3800500E4E40D /* CoursesController.swift */; };
+		434BFDE027E3800500E4E40D /* BirdsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDDF27E3800500E4E40D /* BirdsController.swift */; };
 		434BFDE527E3813600E4E40D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDE427E3813600E4E40D /* Service.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,9 +24,9 @@
 		434BFDA927E37DBC00E4E40D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		434BFDAC27E37DBC00E4E40D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		434BFDAE27E37DBC00E4E40D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		434BFDD427E37F5400E4E40D /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		434BFDD427E37F5400E4E40D /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
 		434BFDD927E37FD200E4E40D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		434BFDDF27E3800500E4E40D /* CoursesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesController.swift; sourceTree = "<group>"; };
+		434BFDDF27E3800500E4E40D /* BirdsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsController.swift; sourceTree = "<group>"; };
 		434BFDE427E3813600E4E40D /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +76,7 @@
 		434BFDD327E37F4800E4E40D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				434BFDD427E37F5400E4E40D /* Course.swift */,
+				434BFDD427E37F5400E4E40D /* Bird.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,7 +92,7 @@
 		434BFDD827E37FA000E4E40D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				434BFDDF27E3800500E4E40D /* CoursesController.swift */,
+				434BFDDF27E3800500E4E40D /* BirdsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -175,10 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				434BFDD527E37F5400E4E40D /* Course.swift in Sources */,
+				434BFDD527E37F5400E4E40D /* Bird.swift in Sources */,
 				434BFDA127E37DBA00E4E40D /* AppDelegate.swift in Sources */,
 				434BFDE527E3813600E4E40D /* Service.swift in Sources */,
-				434BFDE027E3800500E4E40D /* CoursesController.swift in Sources */,
+				434BFDE027E3800500E4E40D /* BirdsController.swift in Sources */,
 				434BFDA327E37DBA00E4E40D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
