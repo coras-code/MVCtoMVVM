@@ -26,6 +26,7 @@ At present I am more familiar with using interface bulider so converted the stor
 - Dealing with the optional 'HowMany' from the api better
 - Hide api key
 - Could add IB branches together, just have both in storyboard and change the intial controller when switching patterns
+- Investigate MVCvsMVVM tutorial to see differences e.g static cell identifier
 
 
 
