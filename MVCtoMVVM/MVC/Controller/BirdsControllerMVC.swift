@@ -61,11 +61,7 @@ class BirdsControllerMVC: UITableViewController {
 
 //in MVVM files dont need to repeat it 
 //extension UIColor {
-//    static let mainTextBlue = UIColor.rgb(r: 7, g: 71, b: 89)
-//
-//    static func rgb(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
-//        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
-//    }
+    //static let mainTextBlue = UIColor(red: 7/255, green: 71/255, blue: 89/255, alpha: 1)
 //}
 
 
