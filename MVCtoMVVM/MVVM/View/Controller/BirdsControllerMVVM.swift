@@ -63,7 +63,7 @@ class BirdsControllerMVVM: UITableViewController {
     }
 
     fileprivate func setupNavBar() {
-        navigationItem.title = "Birds"
+        navigationItem.title = "Birds MVVM"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     }

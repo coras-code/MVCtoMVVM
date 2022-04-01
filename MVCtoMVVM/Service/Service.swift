@@ -32,8 +32,35 @@ struct Service {
             } catch let jsonErr {
                 print("Failed to decode:", jsonErr)
             }
-            }.resume()
+        }.resume()
     }
+    
+    func fetchBirdsMVC(completion: @escaping ([BirdMVC]?, Error?) -> ()) {
+           let urlString = "https://api.ebird.org/v2/data/obs/GB/recent?key=23589pvbie2n"
+           guard let url = URL(string: urlString) else { return }
+           
+            URLSession.shared.dataTask(with: url) { (data, resp, err) in
+               if let err = err {
+                   completion(nil, err)
+                   print("Failed to fetch birds:", err)
+                   return
+               }
+               
+               // check response
+               
+               guard let data = data else { return }
+               do {
+                   let birds = try JSONDecoder().decode([BirdMVC].self, from: data)
+                   DispatchQueue.main.async {
+                       completion(birds, nil)
+                   }
+               } catch let jsonErr {
+                   print("Failed to decode:", jsonErr)
+               }
+            }.resume()
+       }
+    
+    
 
     //NO API
 //    func fetchCourses(completion: @escaping ([Bird]?, Error?) -> ()) {

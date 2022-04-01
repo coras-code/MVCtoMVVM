@@ -11,6 +11,9 @@
 		43489C9927D7BD690086C314 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43489C9827D7BD690086C314 /* SceneDelegate.swift */; };
 		43489CA027D7BD6B0086C314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43489C9F27D7BD6B0086C314 /* Assets.xcassets */; };
 		43489CA327D7BD6B0086C314 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43489CA127D7BD6B0086C314 /* LaunchScreen.storyboard */; };
+		436BD75227F7253700519C83 /* BirdsControllerMVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BD75127F7253700519C83 /* BirdsControllerMVC.swift */; };
+		436BD75627F7254400519C83 /* BirdMVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BD75527F7254400519C83 /* BirdMVC.swift */; };
+		436BD75A27F7255000519C83 /* BirdCellMVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BD75927F7255000519C83 /* BirdCellMVC.swift */; };
 		43835B3F27D7C95C0060BD15 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43835B3627D7C95C0060BD15 /* Service.swift */; };
 		43835B4027D7C95C0060BD15 /* BirdsControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43835B3827D7C95C0060BD15 /* BirdsControllerMVVM.swift */; };
 		43835B4127D7C95C0060BD15 /* BirdViewModelMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43835B3A27D7C95C0060BD15 /* BirdViewModelMVVM.swift */; };
@@ -25,6 +28,9 @@
 		43489C9F27D7BD6B0086C314 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43489CA227D7BD6B0086C314 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43489CA427D7BD6B0086C314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		436BD75127F7253700519C83 /* BirdsControllerMVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirdsControllerMVC.swift; sourceTree = "<group>"; };
+		436BD75527F7254400519C83 /* BirdMVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirdMVC.swift; sourceTree = "<group>"; };
+		436BD75927F7255000519C83 /* BirdCellMVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirdCellMVC.swift; sourceTree = "<group>"; };
 		43835B3627D7C95C0060BD15 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		43835B3827D7C95C0060BD15 /* BirdsControllerMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirdsControllerMVVM.swift; sourceTree = "<group>"; };
 		43835B3A27D7C95C0060BD15 /* BirdViewModelMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirdViewModelMVVM.swift; sourceTree = "<group>"; };
@@ -63,13 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				436BD74D27F723E700519C83 /* MVVM */,
-				43835B3D27D7C95C0060BD15 /* Model */,
-				43835B3E27D7C95C0060BD15 /* BirdMVVM.swift */,
-				43835B3B27D7C95C0060BD15 /* View */,
-				43835B3C27D7C95C0060BD15 /* BirdCellMVVM.swift */,
-				43835B3727D7C95C0060BD15 /* Controller */,
-				43835B3827D7C95C0060BD15 /* BirdsControllerMVVM.swift */,
-				43835B3927D7C95C0060BD15 /* ViewModel */,
+				436BD74F27F7251E00519C83 /* MVC */,
 				43835B3527D7C95C0060BD15 /* Service */,
 				43489C9627D7BD690086C314 /* AppDelegate.swift */,
 				43489C9827D7BD690086C314 /* SceneDelegate.swift */,
@@ -83,8 +83,45 @@
 		436BD74D27F723E700519C83 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				43835B3D27D7C95C0060BD15 /* Model */,
+				43835B3B27D7C95C0060BD15 /* View */,
+				43835B3927D7C95C0060BD15 /* ViewModel */,
 			);
 			path = MVVM;
+			sourceTree = "<group>";
+		};
+		436BD74F27F7251E00519C83 /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				436BD75427F7254400519C83 /* Model */,
+				436BD75827F7255000519C83 /* View */,
+				436BD75027F7253700519C83 /* Controller */,
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
+		436BD75027F7253700519C83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				436BD75127F7253700519C83 /* BirdsControllerMVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		436BD75427F7254400519C83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				436BD75527F7254400519C83 /* BirdMVC.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		436BD75827F7255000519C83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				436BD75927F7255000519C83 /* BirdCellMVC.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		43835B3527D7C95C0060BD15 /* Service */ = {
@@ -98,6 +135,7 @@
 		43835B3727D7C95C0060BD15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				43835B3827D7C95C0060BD15 /* BirdsControllerMVVM.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -113,6 +151,8 @@
 		43835B3B27D7C95C0060BD15 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				43835B3C27D7C95C0060BD15 /* BirdCellMVVM.swift */,
+				43835B3727D7C95C0060BD15 /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,6 +160,7 @@
 		43835B3D27D7C95C0060BD15 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				43835B3E27D7C95C0060BD15 /* BirdMVVM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,10 +235,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				43835B4327D7C95C0060BD15 /* BirdMVVM.swift in Sources */,
+				436BD75227F7253700519C83 /* BirdsControllerMVC.swift in Sources */,
 				43835B3F27D7C95C0060BD15 /* Service.swift in Sources */,
+				436BD75A27F7255000519C83 /* BirdCellMVC.swift in Sources */,
 				43489C9727D7BD690086C314 /* AppDelegate.swift in Sources */,
 				43835B4227D7C95C0060BD15 /* BirdCellMVVM.swift in Sources */,
 				43835B4127D7C95C0060BD15 /* BirdViewModelMVVM.swift in Sources */,
+				436BD75627F7254400519C83 /* BirdMVC.swift in Sources */,
 				43489C9927D7BD690086C314 /* SceneDelegate.swift in Sources */,
 				43835B4027D7C95C0060BD15 /* BirdsControllerMVVM.swift in Sources */,
 			);
