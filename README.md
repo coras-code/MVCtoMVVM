@@ -1,10 +1,10 @@
 # MVCtoMVVM
-
-This project helps to see the differences between MVC and MVVM. Uses the ebird api and displays bird sightings in the UK. If there are more than 5 birds the cell accessory type and label changes 
+This project helps to see the differences between the design patterns- MVC and MVVM. Uses the ebird api and displays bird sightings in the UK. 
+If there are more than 5 birds the cell accessory type and label changes, this functionality sits in different files depending on the design pattern.
 
 ## **Branches:**
 ### Main 
-This branch contains MVC and MVVM patterns, can switch between them by editing the app and scene delegate (comment/uncomment to select desired pattern)
+This branch contains MVC and MVVM patterns, switch between them by editing the app and scene delegate (comment/uncomment to select desired pattern)
 
 ### Original Code
 This branch is the orginal code from the youtube tutorial I followed. (LINK)
