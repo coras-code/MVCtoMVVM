@@ -1,5 +1,8 @@
 # MVCtoMVVM
 A simple app that displays the number of birds sighted at a locaton in the UK. Created to identify the differences between the design patterns- MVC and MVVM. Uses the ebird api. If there are more than 5 birds the cell accessory type and label changes, this functionality sits in different files depending on the design pattern.
+<img src="https://github.com/coras-code/coras-code.github.io/blob/master/images/displayPhotos/BirdsDisplay.jpeg"  title="Splash Screen">
+</p>
+
 
 ## **Branches:**
 ### Main 
