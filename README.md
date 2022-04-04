@@ -1,6 +1,5 @@
 # MVCtoMVVM
-This project helps to see the differences between the design patterns- MVC and MVVM. Uses the ebird api and displays bird sightings in the UK. 
-If there are more than 5 birds the cell accessory type and label changes, this functionality sits in different files depending on the design pattern.
+A simple app that displays the number of birds sighted at a locaton in the UK. Created tto identify the differences between the design patterns- MVC and MVVM. Uses the ebird api. If there are more than 5 birds the cell accessory type and label changes, this functionality sits in different files depending on the design pattern.
 
 ## **Branches:**
 ### Main 
