@@ -1,5 +1,5 @@
 //
-//  CoursesController.swift
+//  BirdsController.swift
 //  MVCtoMVVM
 //
 //  Created by Cora on 17/03/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoursesController: UITableViewController { //Info: A subclass of UIViewController, already has the properties and protocols (delegate and datasource that you need to create a tableview)
+class BirdsController: UITableViewController { //Info: A subclass of UIViewController, already has the properties and protocols (delegate and datasource that you need to create a tableview)
     
     var birdsViewModels = [BirdViewModel]()
     let cellId = "cellId"
@@ -15,6 +15,7 @@ class CoursesController: UITableViewController { //Info: A subclass of UIViewCon
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     fileprivate func fetchData() {

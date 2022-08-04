@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43120176289C0DC8003C595F /* MySightingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43120175289C0DC8003C595F /* MySightingsViewController.swift */; };
 		4324EDB927EB6CC1003E05DF /* BirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324EDB827EB6CC1003E05DF /* BirdViewModel.swift */; };
 		434BFDA127E37DBA00E4E40D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDA027E37DBA00E4E40D /* AppDelegate.swift */; };
 		434BFDA327E37DBA00E4E40D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDA227E37DBA00E4E40D /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43120175289C0DC8003C595F /* MySightingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySightingsViewController.swift; sourceTree = "<group>"; };
 		4324EDB827EB6CC1003E05DF /* BirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdViewModel.swift; sourceTree = "<group>"; };
 		434BFD9D27E37DBA00E4E40D /* MVCtoMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVCtoMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		434BFDA027E37DBA00E4E40D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				434BFDDF27E3800500E4E40D /* BirdsController.swift */,
+				43120175289C0DC8003C595F /* MySightingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43120176289C0DC8003C595F /* MySightingsViewController.swift in Sources */,
 				4324EDB927EB6CC1003E05DF /* BirdViewModel.swift in Sources */,
 				434BFDD527E37F5400E4E40D /* Bird.swift in Sources */,
 				434BFDA127E37DBA00E4E40D /* AppDelegate.swift in Sources */,
