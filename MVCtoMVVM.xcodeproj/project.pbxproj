@@ -17,6 +17,7 @@
 		434BFDDA27E37FD200E4E40D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 434BFDD927E37FD200E4E40D /* Main.storyboard */; };
 		434BFDE027E3800500E4E40D /* BirdsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDDF27E3800500E4E40D /* BirdsController.swift */; };
 		434BFDE527E3813600E4E40D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDE427E3813600E4E40D /* Service.swift */; };
+		438F065328A11D0A00C2B650 /* AddSightingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F065228A11D0A00C2B650 /* AddSightingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		434BFDD927E37FD200E4E40D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		434BFDDF27E3800500E4E40D /* BirdsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsController.swift; sourceTree = "<group>"; };
 		434BFDE427E3813600E4E40D /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		438F065228A11D0A00C2B650 /* AddSightingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSightingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				434BFDDF27E3800500E4E40D /* BirdsController.swift */,
+				438F065228A11D0A00C2B650 /* AddSightingViewController.swift */,
 				43120175289C0DC8003C595F /* MySightingsViewController.swift */,
 			);
 			path = Controller;
@@ -192,6 +195,7 @@
 				43120176289C0DC8003C595F /* MySightingsViewController.swift in Sources */,
 				4324EDB927EB6CC1003E05DF /* BirdViewModel.swift in Sources */,
 				434BFDD527E37F5400E4E40D /* Bird.swift in Sources */,
+				438F065328A11D0A00C2B650 /* AddSightingViewController.swift in Sources */,
 				434BFDA127E37DBA00E4E40D /* AppDelegate.swift in Sources */,
 				434BFDE527E3813600E4E40D /* Service.swift in Sources */,
 				434BFDE027E3800500E4E40D /* BirdsController.swift in Sources */,

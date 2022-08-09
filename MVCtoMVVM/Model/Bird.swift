@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct Bird: Decodable {
+struct Bird: Codable {
     let comName: String
-    let locName: String
+    let locName: String //location
     let howMany: Int?
+    let lat: Double
+    let lng: Double
 }
