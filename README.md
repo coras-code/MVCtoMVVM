@@ -35,7 +35,11 @@ Shows different code particularly programatic UI things I could look into, e.g:
 - Could add IB branches together, just have both in storyboard and change the intial controller when switching patterns
 - Investigate MVCvsMVVM tutorial to see differences e.g static cell identifier
 
-
+really important tip:
+            let dataString = String(data: data, encoding: .utf8)
+            
+            print(dataString!)
+to see the response from the server before decoding (spent ages fixing this server probelm, and this helped right away)
 
 
 
