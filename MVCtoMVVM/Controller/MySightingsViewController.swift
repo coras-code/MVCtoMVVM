@@ -17,6 +17,8 @@ class MySightingsViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         populateSightings()
+        
+        
     }
     
     fileprivate func populateSightings() {
@@ -44,7 +46,7 @@ class MySightingsViewController: UITableViewController {
         
         let sighting = sightings[indexPath.row]
         cell.textLabel?.text = sighting.comName
-        let details = "You spotted \(sighting.howMany!) birds at \(sighting.lat)°, \(sighting.lng)°"
+        let details = "You spotted \(sighting.howMany ?? 0) birds at \(sighting.lat)°, \(sighting.lng)°"
         cell.detailTextLabel?.text = details
         
         return cell

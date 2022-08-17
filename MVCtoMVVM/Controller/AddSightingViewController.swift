@@ -10,7 +10,6 @@ import UIKit
 
 protocol AddSightingDelegate {
     func didSaveSighting()
-    //func didClose()
 }
 
 class AddSightingViewController: UIViewController {
@@ -20,20 +19,27 @@ class AddSightingViewController: UIViewController {
     @IBOutlet weak var latitudeTextField: UITextField!
     @IBOutlet weak var longitudeTextField: UITextField!
     @IBOutlet weak var numberOfSightings: UITextField!
+    var namePickerView = UIPickerView()
+    var birdNames = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Hack - list of offical bird names using anotehr api
+        Service.shared.fetchBirds{(birds, err) in
+            if let birds = birds {
+                self.birdNames = birds.map({return $0.comName}).sorted(by: <)
+                self.namePickerView.reloadAllComponents()
+            }
+        }
         setupUI()
     }
     
     // MARK: UI
     private func setupUI() {
+        namePickerView.delegate = self
+        namePickerView.dataSource = self
+        nameTextField.inputView = namePickerView
     }
-    
-    
-    // MARK: Actions
-//    @IBAction func close() {
-//    }
     
     @IBAction func save() {
         
@@ -57,9 +63,35 @@ class AddSightingViewController: UIViewController {
             }
             
             if let delegate = self.delegate {
-                delegate.didSaveSighting()
                 self.dismiss(animated: true, completion: nil)
+                delegate.didSaveSighting()
             }
         }
     }
 }
+
+extension AddSightingViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return birdNames.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if birdNames.count > 1 {
+            return birdNames[row]
+        } else {
+            return ""
+        }
+    }
+}
+
+extension AddSightingViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        nameTextField.text = birdNames[row]
+       // nameTextField.resignFirstResponder() //don't know if i like this behaviour
+    }
+}
+
