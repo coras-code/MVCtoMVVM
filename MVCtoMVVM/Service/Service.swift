@@ -41,7 +41,7 @@ struct Service {
     }
     
     //Sightings part of the app
-    func loadSightings<T>(resource: Resource<T>, completion: @escaping ([Bird]?, Error?) -> ()) {
+    func loadSightings<T>(resource: Resource<T>, completion: @escaping (T?, Error?) -> ()) {
         guard let url = URL(string: resource.urlString) else { fatalError("URL is incorrect") }
         var request = URLRequest(url: url)
         request.httpMethod = resource.httpMethod
@@ -57,7 +57,7 @@ struct Service {
             
             guard let data = data else { return }
             do {
-                let birds = try JSONDecoder().decode([Bird].self, from: data)
+                let birds = try JSONDecoder().decode(T.self, from: data)
                 DispatchQueue.main.async {
                     completion(birds, nil)
                 }

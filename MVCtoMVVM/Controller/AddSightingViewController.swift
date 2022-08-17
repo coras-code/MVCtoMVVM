@@ -37,9 +37,6 @@ class AddSightingViewController: UIViewController {
     
     @IBAction func save() {
         
-        let string = "\(nameTextField.text!) \(latitudeTextField.text!) \(longitudeTextField.text!) \(numberOfSightings.text!)"
-        print(string)
-        
         let sighting = Bird(comName: nameTextField.text!, locName: "", howMany: Int(numberOfSightings.text!), lat: Double(latitudeTextField.text!) ?? 0, lng: Double(longitudeTextField.text!) ?? 0)
         
         guard let data = try? JSONEncoder().encode(sighting) else {
@@ -47,22 +44,22 @@ class AddSightingViewController: UIViewController {
         }
         
         //post this to api
-        let sightingResource = Resource<[Bird]>(httpMethod: "POST", body: data)
-        Service.shared.loadSightings(resource: sightingResource){ (birds, err) in //pass in default resource
-           if let err = err {
+        let sightingResource = Resource<Bird>(httpMethod: "POST", body: data)
+        Service.shared.loadSightings(resource: sightingResource){ (bird, err) in //pass in default resource
+            if let err = err {
             print("Failed to post sighting:", err.localizedDescription)
                return
-           }
+            }
             
-            if let birds = birds {
-                if let delegate = self.delegate {
-                    delegate.didSaveSighting()
-                    self.dismiss(animated: true, completion: nil)
-                }
-                print(birds)
+            guard bird != nil else {
+                print("Unexpected response returned from server")
+                return
+            }
+            
+            if let delegate = self.delegate {
+                delegate.didSaveSighting()
+                self.dismiss(animated: true, completion: nil)
             }
         }
-        
-        
     }
 }

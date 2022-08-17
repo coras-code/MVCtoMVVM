@@ -17,7 +17,6 @@ class MySightingsViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         populateSightings()
-        
     }
     
     fileprivate func populateSightings() {
@@ -28,9 +27,9 @@ class MySightingsViewController: UITableViewController {
                return
            }
 
-        self.sightings = birds!
-        print(self.sightings)
-        self.tableView.reloadData()
+            self.sightings = birds!.reversed()
+            print(self.sightings)
+            self.tableView.reloadData()
        }
     }
     
