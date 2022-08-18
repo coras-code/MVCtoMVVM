@@ -28,10 +28,11 @@ Shows different code particularly programatic UI things I could look into, e.g:
     - UIColor custom extension to make adding r,g,b colours quicker, not really neccessary 
 
 
-### Improvements/Todo
-- The detail labels truncate, need to make the cells dynamic so the height changes.  
-- Dealing with the optional 'HowMany' from the api better
+### Improvements/Todo 
+- Dealing with the optionals e.g. 'HowMany' from the api better
 - Hide api key
+- Latitude and logitude converts into a place name to save into locName field
+- My sightings data, dummy API improve checks, and prevent nil sent from add sightings screen
 - Could add IB branches together, just have both in storyboard and change the intial controller when switching patterns
 - Investigate MVCvsMVVM tutorial to see differences e.g static cell identifier
 
