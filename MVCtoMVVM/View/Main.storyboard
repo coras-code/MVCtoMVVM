@@ -92,31 +92,27 @@
                                 </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="j6a-Od-qjr">
-                                <rect key="frame" x="20" y="74" width="349" height="34"/>
+                                <rect key="frame" x="20" y="74" width="359" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4FP-ff-I3s">
-                                        <rect key="frame" x="0.0" y="0.0" width="172" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ouM-1J-eD1">
-                                        <rect key="frame" x="177" y="0.0" width="172" height="34"/>
+                                        <rect key="frame" x="182" y="0.0" width="177" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ihz-0R-uJB">
-                                <rect key="frame" x="374" y="73" width="20" height="33.5"/>
-                                <color key="tintColor" name="mainTextBlue"/>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How Many" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tCZ-fv-vGl">
-                                <rect key="frame" x="20" y="128" width="374" height="34"/>
+                                <rect key="frame" x="20" y="182" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdb-Am-ibV">
-                                <rect key="frame" x="190" y="182" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdb-Am-ibV">
+                                <rect key="frame" x="190" y="238" width="34" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" name="mainTextBlue"/>
                                 </state>
@@ -124,22 +120,57 @@
                                     <action selector="save" destination="EoM-pj-qd6" eventType="touchUpInside" id="KUt-M0-Z7q"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TD-sT-58T" userLabel="CoordButton">
+                                <rect key="frame" x="384" y="74" width="25" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="1Yn-B8-F3s"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain" image="location" catalog="system">
+                                    <color key="baseForegroundColor" name="mainTextBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="coordButtonPressed:" destination="EoM-pj-qd6" eventType="touchUpInside" id="gNr-UC-qzq"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KTs-1Y-Onx" userLabel="LocationName">
+                                <rect key="frame" x="20" y="128" width="359" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3s-Pr-Afu" userLabel="LocationButton">
+                                <rect key="frame" x="384" y="128" width="25" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="umK-G0-Bh8"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain" image="location.magnifyingglass" catalog="system">
+                                    <color key="baseForegroundColor" name="mainTextBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="locationButtonPressed:" destination="EoM-pj-qd6" eventType="touchUpInside" id="tRe-PV-pyW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="74a-Sg-CYI"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tCZ-fv-vGl" firstAttribute="top" secondItem="Ihz-0R-uJB" secondAttribute="bottom" constant="21" id="7wy-b5-rtF"/>
                             <constraint firstItem="9Nv-hM-vHt" firstAttribute="leading" secondItem="74a-Sg-CYI" secondAttribute="leading" constant="20" id="7yC-yW-Onw"/>
-                            <constraint firstItem="74a-Sg-CYI" firstAttribute="trailing" secondItem="Ihz-0R-uJB" secondAttribute="trailing" constant="20" id="8bT-OX-kPy"/>
-                            <constraint firstItem="Ihz-0R-uJB" firstAttribute="leading" secondItem="ouM-1J-eD1" secondAttribute="trailing" constant="5" id="A9p-gD-tF0"/>
+                            <constraint firstItem="ouM-1J-eD1" firstAttribute="top" secondItem="3TD-sT-58T" secondAttribute="top" id="8lt-LA-dek"/>
+                            <constraint firstItem="74a-Sg-CYI" firstAttribute="trailing" secondItem="3TD-sT-58T" secondAttribute="trailing" constant="5" id="9xj-Jp-JxY"/>
+                            <constraint firstItem="KTs-1Y-Onx" firstAttribute="bottom" secondItem="m3s-Pr-Afu" secondAttribute="bottom" id="EFm-lE-EF3"/>
                             <constraint firstItem="qdb-Am-ibV" firstAttribute="top" secondItem="tCZ-fv-vGl" secondAttribute="bottom" constant="20" id="HgR-k8-yfv"/>
+                            <constraint firstItem="74a-Sg-CYI" firstAttribute="trailing" secondItem="m3s-Pr-Afu" secondAttribute="trailing" constant="5" id="LMI-XK-Fhp"/>
+                            <constraint firstItem="KTs-1Y-Onx" firstAttribute="top" secondItem="m3s-Pr-Afu" secondAttribute="top" id="LxP-bM-xSL"/>
                             <constraint firstItem="9Nv-hM-vHt" firstAttribute="top" secondItem="74a-Sg-CYI" secondAttribute="top" constant="20" id="PaI-VW-rnL"/>
-                            <constraint firstItem="tCZ-fv-vGl" firstAttribute="top" secondItem="j6a-Od-qjr" secondAttribute="bottom" constant="20" id="PkJ-wR-zuj"/>
+                            <constraint firstItem="ouM-1J-eD1" firstAttribute="bottom" secondItem="3TD-sT-58T" secondAttribute="bottom" id="Q0I-bZ-Wlu"/>
                             <constraint firstItem="74a-Sg-CYI" firstAttribute="trailing" secondItem="9Nv-hM-vHt" secondAttribute="trailing" constant="20" id="Rbm-Hq-Cf0"/>
                             <constraint firstItem="qdb-Am-ibV" firstAttribute="centerX" secondItem="mRj-1Q-cHg" secondAttribute="centerX" id="Sv4-f1-Cou"/>
                             <constraint firstItem="j6a-Od-qjr" firstAttribute="leading" secondItem="74a-Sg-CYI" secondAttribute="leading" constant="20" id="YYY-g1-2xH"/>
-                            <constraint firstItem="Ihz-0R-uJB" firstAttribute="top" secondItem="9Nv-hM-vHt" secondAttribute="bottom" constant="18" id="j0W-GS-9wS"/>
+                            <constraint firstItem="KTs-1Y-Onx" firstAttribute="leading" secondItem="74a-Sg-CYI" secondAttribute="leading" constant="20" id="ZMJ-AY-YdK"/>
+                            <constraint firstItem="tCZ-fv-vGl" firstAttribute="top" secondItem="KTs-1Y-Onx" secondAttribute="bottom" constant="20" id="eK3-Xi-H50"/>
+                            <constraint firstItem="3TD-sT-58T" firstAttribute="leading" secondItem="j6a-Od-qjr" secondAttribute="trailing" constant="5" id="fyH-P8-yUv"/>
                             <constraint firstItem="j6a-Od-qjr" firstAttribute="top" secondItem="9Nv-hM-vHt" secondAttribute="bottom" constant="20" id="nSm-Fq-uVE"/>
+                            <constraint firstItem="m3s-Pr-Afu" firstAttribute="leading" secondItem="KTs-1Y-Onx" secondAttribute="trailing" constant="5" id="p56-eY-mJX"/>
+                            <constraint firstItem="KTs-1Y-Onx" firstAttribute="top" secondItem="j6a-Od-qjr" secondAttribute="bottom" constant="20" id="u2i-tQ-gPK"/>
                             <constraint firstItem="74a-Sg-CYI" firstAttribute="trailing" secondItem="tCZ-fv-vGl" secondAttribute="trailing" constant="20" id="vWH-au-cSI"/>
                             <constraint firstItem="tCZ-fv-vGl" firstAttribute="leading" secondItem="74a-Sg-CYI" secondAttribute="leading" constant="20" id="vki-9M-fxf"/>
                         </constraints>
@@ -149,16 +180,19 @@
                         <barButtonItem key="leftBarButtonItem" title="Close" id="LEg-uk-Tbz"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="coordButton" destination="3TD-sT-58T" id="hqv-1t-HVZ"/>
                         <outlet property="latitudeTextField" destination="4FP-ff-I3s" id="KTc-22-6Jg"/>
+                        <outlet property="locationButton" destination="m3s-Pr-Afu" id="RX4-Zc-ksc"/>
+                        <outlet property="locationTextField" destination="KTs-1Y-Onx" id="BxX-HT-DxQ"/>
                         <outlet property="longitudeTextField" destination="ouM-1J-eD1" id="GbC-uJ-miM"/>
                         <outlet property="nameTextField" destination="9Nv-hM-vHt" id="TUI-Oe-i4c"/>
-                        <outlet property="numberOfSightings" destination="tCZ-fv-vGl" id="tG5-E4-igk"/>
+                        <outlet property="numberOfSightingsTextField" destination="tCZ-fv-vGl" id="tG5-E4-igk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHP-3Z-Cp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xDp-sX-dOP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2248" y="230"/>
+            <point key="canvasLocation" x="2247.826086956522" y="229.6875"/>
         </scene>
         <!--MySightings-->
         <scene sceneID="AIJ-N7-Dve">
@@ -183,7 +217,7 @@
                                             <color key="textColor" name="mainTextBlue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="How many spotted at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ewb-2s-6Ev" userLabel="Details">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="How many spotted at" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ewb-2s-6Ev" userLabel="Details">
                                             <rect key="frame" x="20" y="46" width="137.5" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -250,6 +284,7 @@
     <resources>
         <image name="globe" catalog="system" width="128" height="121"/>
         <image name="location" catalog="system" width="128" height="118"/>
+        <image name="location.magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="mainTextBlue">

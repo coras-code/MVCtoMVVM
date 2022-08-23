@@ -8,8 +8,8 @@
 import Foundation
 
 //Sightings part of the app
-struct Resource<T: Codable> { //generics
-    let urlString: String = "https://shining-fantastic-risk.glitch.me/birds"
+struct Resource<T: Codable> {
+    var urlString: String = "https://shining-fantastic-risk.glitch.me/birds"
     var httpMethod: String = "GET" //or "POST"
     var body: Data? = nil
 }
@@ -37,12 +37,12 @@ struct Service {
             } catch let jsonErr {
                 print("Failed to decode:", jsonErr)
             }
-            }.resume()
+        }.resume()
     }
     
     //Sightings part of the app
-    func loadSightings<T>(resource: Resource<T>, completion: @escaping (T?, Error?) -> ()) {
-        guard let url = URL(string: resource.urlString) else { fatalError("URL is incorrect") }
+    func load<T>(resource: Resource<T>, completion: @escaping (T?, Error?) -> ()) {
+        guard let url = URL(string: resource.urlString) else { fatalError("URL is incorrect \(resource.urlString)") }
         var request = URLRequest(url: url)
         request.httpMethod = resource.httpMethod
         request.httpBody = resource.body
@@ -56,6 +56,8 @@ struct Service {
             }
             
             guard let data = data else { return }
+            //let dataString = String(data: data, encoding: .utf8)
+           // print(dataString)
             do {
                 let birds = try JSONDecoder().decode(T.self, from: data)
                 DispatchQueue.main.async {
@@ -64,7 +66,7 @@ struct Service {
             } catch let jsonErr {
                 print("Failed to decode:", jsonErr)
             }
-            }.resume()
+        }.resume()
     }
 
     //NO API

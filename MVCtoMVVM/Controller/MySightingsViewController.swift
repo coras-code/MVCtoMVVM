@@ -17,20 +17,17 @@ class MySightingsViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         populateSightings()
-        
-        
     }
     
     fileprivate func populateSightings() {
-        
-        Service.shared.loadSightings(resource: Resource<[Bird]>()){ (birds, err) in //pass in default resource
+        //pass in default resource
+        Service.shared.load(resource: Resource<[Bird]>()){ (birds, err) in
            if let err = err {
             print("Failed to fetch birds:", err.localizedDescription)
                return
            }
 
             self.sightings = birds!.reversed()
-            print(self.sightings)
             self.tableView.reloadData()
        }
     }
@@ -46,12 +43,20 @@ class MySightingsViewController: UITableViewController {
         
         let sighting = sightings[indexPath.row]
         cell.textLabel?.text = sighting.comName
-        let details = "You spotted \(sighting.howMany ?? 0) birds at \(sighting.lat)°, \(sighting.lng)°"
+        var latitude = "\(sighting.lat)° N"
+        var longitude = "\(sighting.lng)° E"
+        
+        if sighting.lat < 0 {
+            latitude = "\(sighting.lat)° S"
+        }
+        if sighting.lng < 0 {
+            longitude = "\(sighting.lng)° W"
+        }
+        let details = "You spotted \(sighting.howMany ?? 0) birds at \(sighting.locName), (\(latitude), \(longitude))"
         cell.detailTextLabel?.text = details
         
         return cell
     }
-    
 }
 
 extension MySightingsViewController: AddSightingDelegate {
@@ -69,24 +74,4 @@ extension MySightingsViewController {
             addSightingVC.delegate = self
         }
     }
-//        if segue.identifier == "AddWeatherCityViewController" {
-////        guard let navC = segue.destination as? UINavigationController,
-////              let addSightingVC = navC.viewControllers.first as? AddSightingViewController
-////        else {
-////            fatalError("Error performing segue!")
-////        }
-//        addSightingVC.delegate = self
-//    }
 }
-
-
-//if segue.identifier == "AddWeatherCityViewController" {
-//           guard let nav = segue.destination as? UINavigationController else {
-//               fatalError("NavigationController not found")
-//           }
-//
-//           guard let addWeatherCityVC = nav.viewControllers.first as? AddWeatherCityViewController else {
-//               fatalError("AddWeatherCityController not found")
-//           }
-//
-//               addWeatherCityVC.delegate = self
