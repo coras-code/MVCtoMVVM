@@ -19,14 +19,18 @@ class BirdsController: UITableViewController {
     }
     
     fileprivate func fetchData() {
-       Service.shared.fetchBirds { (birds, err) in
+        let urlString = "https://api.ebird.org/v2/data/obs/GB/recent?key=23589pvbie2n"
+            
+        let birdsResource = Resource<[Bird]>(urlString: urlString)
+        
+        Service.shared.load(resource: birdsResource) { (birds, err) in
            if let err = err {
             print("Failed to fetch birds:", err.localizedDescription)
                return
            }
 
-        self.birdsViewModels = birds?.map({return BirdViewModel(bird: $0)}) ?? []
-           self.tableView.reloadData()
+            self.birdsViewModels = birds?.map({return BirdViewModel(bird: $0)}) ?? []
+            self.tableView.reloadData()
 
        }
     }

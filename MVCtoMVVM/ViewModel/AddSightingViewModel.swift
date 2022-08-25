@@ -13,7 +13,11 @@ class AddSightingViewModel {
     var exampleBirdNames = [String]()
     //Hack - list of offical bird names using another api
     func fetchExampleBirdNames(completion: @escaping () -> ()) {
-        Service.shared.fetchBirds{(birds, err) in
+        let urlString = "https://api.ebird.org/v2/data/obs/GB/recent?key=23589pvbie2n"
+            
+        let birdsResource = Resource<[Bird]>(urlString: urlString)
+        
+        Service.shared.load(resource: birdsResource) { (birds, err) in
             if let birds = birds {
                 self.exampleBirdNames = birds.map({return $0.comName}).sorted(by: <)
                 completion()

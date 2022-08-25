@@ -51,11 +51,13 @@ class AddSightingViewController: UIViewController {
         longitudeTextField.text = String(format: "%.8f",
                                      location.coordinate.longitude)
       }
+        self.spinner.stopAnimating()
     }
     
     
     //MARK: - IB Actions
     @IBAction func coordButtonPressed(_ sender: UIButton) {
+        self.spinner.startAnimating()
         locationManager.requestLocation()
         locationTextField.becomeFirstResponder()
     }
