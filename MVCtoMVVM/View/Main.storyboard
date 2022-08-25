@@ -111,7 +111,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdb-Am-ibV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdb-Am-ibV">
                                 <rect key="frame" x="190" y="238" width="34" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" name="mainTextBlue"/>
@@ -132,7 +132,7 @@
                                     <action selector="coordButtonPressed:" destination="EoM-pj-qd6" eventType="touchUpInside" id="gNr-UC-qzq"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KTs-1Y-Onx" userLabel="LocationName">
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KTs-1Y-Onx" userLabel="LocationName">
                                 <rect key="frame" x="20" y="128" width="359" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -149,6 +149,9 @@
                                     <action selector="locationButtonPressed:" destination="EoM-pj-qd6" eventType="touchUpInside" id="tRe-PV-pyW"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ilr-ma-wTF">
+                                <rect key="frame" x="0.0" y="268" width="414" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="74a-Sg-CYI"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -157,7 +160,8 @@
                             <constraint firstItem="ouM-1J-eD1" firstAttribute="top" secondItem="3TD-sT-58T" secondAttribute="top" id="8lt-LA-dek"/>
                             <constraint firstItem="74a-Sg-CYI" firstAttribute="trailing" secondItem="3TD-sT-58T" secondAttribute="trailing" constant="5" id="9xj-Jp-JxY"/>
                             <constraint firstItem="KTs-1Y-Onx" firstAttribute="bottom" secondItem="m3s-Pr-Afu" secondAttribute="bottom" id="EFm-lE-EF3"/>
-                            <constraint firstItem="qdb-Am-ibV" firstAttribute="top" secondItem="tCZ-fv-vGl" secondAttribute="bottom" constant="20" id="HgR-k8-yfv"/>
+                            <constraint firstItem="qdb-Am-ibV" firstAttribute="top" secondItem="tCZ-fv-vGl" secondAttribute="bottom" constant="22" id="HgR-k8-yfv"/>
+                            <constraint firstItem="74a-Sg-CYI" firstAttribute="trailing" secondItem="ilr-ma-wTF" secondAttribute="trailing" id="K6T-KF-57I"/>
                             <constraint firstItem="74a-Sg-CYI" firstAttribute="trailing" secondItem="m3s-Pr-Afu" secondAttribute="trailing" constant="5" id="LMI-XK-Fhp"/>
                             <constraint firstItem="KTs-1Y-Onx" firstAttribute="top" secondItem="m3s-Pr-Afu" secondAttribute="top" id="LxP-bM-xSL"/>
                             <constraint firstItem="9Nv-hM-vHt" firstAttribute="top" secondItem="74a-Sg-CYI" secondAttribute="top" constant="20" id="PaI-VW-rnL"/>
@@ -167,10 +171,12 @@
                             <constraint firstItem="j6a-Od-qjr" firstAttribute="leading" secondItem="74a-Sg-CYI" secondAttribute="leading" constant="20" id="YYY-g1-2xH"/>
                             <constraint firstItem="KTs-1Y-Onx" firstAttribute="leading" secondItem="74a-Sg-CYI" secondAttribute="leading" constant="20" id="ZMJ-AY-YdK"/>
                             <constraint firstItem="tCZ-fv-vGl" firstAttribute="top" secondItem="KTs-1Y-Onx" secondAttribute="bottom" constant="20" id="eK3-Xi-H50"/>
+                            <constraint firstItem="ilr-ma-wTF" firstAttribute="top" secondItem="qdb-Am-ibV" secondAttribute="bottom" id="fqr-GV-f9T"/>
                             <constraint firstItem="3TD-sT-58T" firstAttribute="leading" secondItem="j6a-Od-qjr" secondAttribute="trailing" constant="5" id="fyH-P8-yUv"/>
                             <constraint firstItem="j6a-Od-qjr" firstAttribute="top" secondItem="9Nv-hM-vHt" secondAttribute="bottom" constant="20" id="nSm-Fq-uVE"/>
                             <constraint firstItem="m3s-Pr-Afu" firstAttribute="leading" secondItem="KTs-1Y-Onx" secondAttribute="trailing" constant="5" id="p56-eY-mJX"/>
                             <constraint firstItem="KTs-1Y-Onx" firstAttribute="top" secondItem="j6a-Od-qjr" secondAttribute="bottom" constant="20" id="u2i-tQ-gPK"/>
+                            <constraint firstItem="ilr-ma-wTF" firstAttribute="leading" secondItem="74a-Sg-CYI" secondAttribute="leading" id="uET-Iu-rQG"/>
                             <constraint firstItem="74a-Sg-CYI" firstAttribute="trailing" secondItem="tCZ-fv-vGl" secondAttribute="trailing" constant="20" id="vWH-au-cSI"/>
                             <constraint firstItem="tCZ-fv-vGl" firstAttribute="leading" secondItem="74a-Sg-CYI" secondAttribute="leading" constant="20" id="vki-9M-fxf"/>
                         </constraints>
@@ -187,6 +193,7 @@
                         <outlet property="longitudeTextField" destination="ouM-1J-eD1" id="GbC-uJ-miM"/>
                         <outlet property="nameTextField" destination="9Nv-hM-vHt" id="TUI-Oe-i4c"/>
                         <outlet property="numberOfSightingsTextField" destination="tCZ-fv-vGl" id="tG5-E4-igk"/>
+                        <outlet property="spinner" destination="ilr-ma-wTF" id="uJK-FV-cO3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHP-3Z-Cp2" userLabel="First Responder" sceneMemberID="firstResponder"/>

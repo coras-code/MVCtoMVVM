@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BirdsController: UITableViewController { //Info: A subclass of UIViewController, already has the properties and protocols (delegate and datasource that you need to create a tableview)
+class BirdsController: UITableViewController {
     
     var birdsViewModels = [BirdViewModel]()
     let cellId = "cellId"
@@ -19,14 +19,18 @@ class BirdsController: UITableViewController { //Info: A subclass of UIViewContr
     }
     
     fileprivate func fetchData() {
-       Service.shared.fetchBirds { (birds, err) in
+        let urlString = "https://api.ebird.org/v2/data/obs/GB/recent?key=23589pvbie2n"
+            
+        let birdsResource = Resource<[Bird]>(urlString: urlString)
+        
+        Service.shared.load(resource: birdsResource) { (birds, err) in
            if let err = err {
             print("Failed to fetch birds:", err.localizedDescription)
                return
            }
 
-        self.birdsViewModels = birds?.map({return BirdViewModel(bird: $0)}) ?? [] //Additional Research: do i need ?? []
-           self.tableView.reloadData()
+            self.birdsViewModels = birds?.map({return BirdViewModel(bird: $0)}) ?? []
+            self.tableView.reloadData()
 
        }
     }
@@ -45,8 +49,6 @@ class BirdsController: UITableViewController { //Info: A subclass of UIViewContr
         cell.detailTextLabel?.text = bird.birdsSighted
     
         cell.selectionStyle = .none
-        
-        //this does not need to be extracted out as this is to be able to programmatically/create a nib to design a (custom) cell but as we are using a storyboard we dont need to do this
         
         return cell
     }

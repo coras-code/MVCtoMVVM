@@ -13,7 +13,6 @@ struct BirdViewModel {
     let birdsSighted: String
     let accessoryType:  UITableViewCell.AccessoryType
 
-    //DI
     init(bird : Bird){
         self.name = bird.comName
 
@@ -31,9 +30,6 @@ struct BirdViewModel {
             self.birdsSighted = "Unknown how many birds where sighted here"
             self.accessoryType = .none
         }
-        
-        
-        
     }
 }
 

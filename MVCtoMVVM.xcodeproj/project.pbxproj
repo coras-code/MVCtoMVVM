@@ -18,7 +18,9 @@
 		434BFDE027E3800500E4E40D /* BirdsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDDF27E3800500E4E40D /* BirdsController.swift */; };
 		434BFDE527E3813600E4E40D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434BFDE427E3813600E4E40D /* Service.swift */; };
 		4381639728AE86710046A390 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4381639628AE86710046A390 /* Location.swift */; };
+		4381E77E28B4EBA1003EAD23 /* MySightingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4381E77D28B4EBA1003EAD23 /* MySightingsViewModel.swift */; };
 		438F065328A11D0A00C2B650 /* AddSightingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F065228A11D0A00C2B650 /* AddSightingViewController.swift */; };
+		43CF706328B778BA00A8A102 /* AddSightingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF706228B778BA00A8A102 /* AddSightingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +37,9 @@
 		434BFDDF27E3800500E4E40D /* BirdsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsController.swift; sourceTree = "<group>"; };
 		434BFDE427E3813600E4E40D /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		4381639628AE86710046A390 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4381E77D28B4EBA1003EAD23 /* MySightingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySightingsViewModel.swift; sourceTree = "<group>"; };
 		438F065228A11D0A00C2B650 /* AddSightingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSightingViewController.swift; sourceTree = "<group>"; };
+		43CF706228B778BA00A8A102 /* AddSightingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSightingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				4324EDB827EB6CC1003E05DF /* BirdViewModel.swift */,
+				4381E77D28B4EBA1003EAD23 /* MySightingsViewModel.swift */,
+				43CF706228B778BA00A8A102 /* AddSightingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -200,7 +206,9 @@
 				434BFDD527E37F5400E4E40D /* Bird.swift in Sources */,
 				438F065328A11D0A00C2B650 /* AddSightingViewController.swift in Sources */,
 				4381639728AE86710046A390 /* Location.swift in Sources */,
+				4381E77E28B4EBA1003EAD23 /* MySightingsViewModel.swift in Sources */,
 				434BFDA127E37DBA00E4E40D /* AppDelegate.swift in Sources */,
+				43CF706328B778BA00A8A102 /* AddSightingViewModel.swift in Sources */,
 				434BFDE527E3813600E4E40D /* Service.swift in Sources */,
 				434BFDE027E3800500E4E40D /* BirdsController.swift in Sources */,
 				434BFDA327E37DBA00E4E40D /* SceneDelegate.swift in Sources */,
