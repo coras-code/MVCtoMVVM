@@ -53,7 +53,7 @@ class MySightingsViewController: UITableViewController {
 
 extension MySightingsViewController: AddSightingDelegate {
     func didSaveSighting() {
-        populateSightings() //refresh sightings with new one
+        populateSightings()
     }
 }
 

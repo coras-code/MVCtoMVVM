@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BirdsController: UITableViewController { //Info: A subclass of UIViewController, already has the properties and protocols (delegate and datasource that you need to create a tableview)
+class BirdsController: UITableViewController {
     
     var birdsViewModels = [BirdViewModel]()
     let cellId = "cellId"
@@ -25,7 +25,7 @@ class BirdsController: UITableViewController { //Info: A subclass of UIViewContr
                return
            }
 
-        self.birdsViewModels = birds?.map({return BirdViewModel(bird: $0)}) ?? [] //Additional Research: do i need ?? []
+        self.birdsViewModels = birds?.map({return BirdViewModel(bird: $0)}) ?? []
            self.tableView.reloadData()
 
        }
@@ -45,8 +45,6 @@ class BirdsController: UITableViewController { //Info: A subclass of UIViewContr
         cell.detailTextLabel?.text = bird.birdsSighted
     
         cell.selectionStyle = .none
-        
-        //this does not need to be extracted out as this is to be able to programmatically/create a nib to design a (custom) cell but as we are using a storyboard we dont need to do this
         
         return cell
     }

@@ -11,7 +11,6 @@ class AddSightingViewModel {
     
     
     var exampleBirdNames = [String]()
-    //MOVE TO CORE DATA
     //Hack - list of offical bird names using another api
     func fetchExampleBirdNames(completion: @escaping () -> ()) {
         Service.shared.fetchBirds{(birds, err) in

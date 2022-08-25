@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         if #available(iOS 13.0, *) {
                   //customNavBarAppearance()
@@ -22,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                   appearance.scrollEdgeAppearance = newNavBarAppearance
                   appearance.compactAppearance = newNavBarAppearance
                   appearance.standardAppearance = newNavBarAppearance
-      //            if #available(iOS 15.0, *) { //doesnt work with my xcode
-      //                appearance.compactScrollEdgeAppearance = newNavBarAppearance
-      //            }
+                  if #available(iOS 15.0, *) { //doesnt work with my xcode
+                      appearance.compactScrollEdgeAppearance = newNavBarAppearance
+                  }
               } else {
                   UINavigationBar.appearance().barTintColor = UIColor(displayP3Red: 52/255, green: 152/255, blue: 219/255, alpha: 1.0)
                   UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]

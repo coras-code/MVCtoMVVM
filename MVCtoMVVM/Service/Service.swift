@@ -7,13 +7,11 @@
 
 import Foundation
 
-//Sightings part of the app
 struct Resource<T: Codable> {
     var urlString: String = "https://shining-fantastic-risk.glitch.me/birds"
     var httpMethod: String = "GET" //or "POST"
     var body: Data? = nil
 }
-
 
 struct Service {
     static let shared = Service()
@@ -40,7 +38,6 @@ struct Service {
         }.resume()
     }
     
-    //Sightings part of the app
     func load<T>(resource: Resource<T>, completion: @escaping (T?, Error?) -> ()) {
         guard let url = URL(string: resource.urlString) else { fatalError("URL is incorrect \(resource.urlString)") }
         var request = URLRequest(url: url)
@@ -56,8 +53,7 @@ struct Service {
             }
             
             guard let data = data else { return }
-            //let dataString = String(data: data, encoding: .utf8)
-           // print(dataString)
+
             do {
                 let birds = try JSONDecoder().decode(T.self, from: data)
                 DispatchQueue.main.async {
@@ -68,21 +64,4 @@ struct Service {
             }
         }.resume()
     }
-
-    //NO API
-//    func fetchCourses(completion: @escaping ([Bird]?, Error?) -> ()) {
-//        completion(birds, nil)
-//    }
-//
-//    //look into result types
-//    //    func fetchCourses(_ completion: @escaping (Result<[Bird], Error>) -> ()) {
-//    //            completion(.success(data)) //result types
-//    //        }
-//}
-//
-//    let birds = [
-//        Bird(comName: 23, locName: "Javascript Bird", howMany: 56),
-//        Bird(comName: 43, locName: "Swift Bird", howMany: 12),
-//        Bird(comName: 56, locName: "Python Bird", howMany: 109),
-//        ]
 }

@@ -31,11 +31,8 @@ class AddSightingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //spinner.isHidden = true
-        spinner.hidesWhenStopped = true
         spinner.startAnimating()
-        
-        
+        spinner.hidesWhenStopped = true
         addSightingViewModel.fetchExampleBirdNames() {
             self.spinner.stopAnimating()
         }
@@ -79,7 +76,6 @@ class AddSightingViewController: UIViewController {
     
     @IBAction func save() {
         //make sure that it is not possible for this to be nil, validation/user input errors
-        //These default values are to make sure the server rules are satisfied (i.e no nil values), however a better way of dealing with this would be displaying a error to the user that does not let them save with empty fields
         spinner.startAnimating()
         let sighting = Bird(comName: nameTextField.text!, locName: locationTextField.text ?? "Unknown", howMany: Int(numberOfSightingsTextField.text ?? "0") , lat: Double(latitudeTextField.text!) ?? 0, lng: Double(longitudeTextField.text!) ?? 0)
         
@@ -150,25 +146,3 @@ extension AddSightingViewController: CLLocationManagerDelegate {
         print(error.localizedDescription)
     }
 }
-
-
-//MARK: - Valdiation and user feedback
-
-// guard let latitude = latitudeTextField.text, let longitude = longitudeTextField.text else { return }
-
-//need to prevent letters being entered then convert to a double and carry out checks
-    //Double(latitudeTextField.text!), let longitude = Double(longitudeTextField.text!) else { return }
-
-//        if (-90...90 ~= latitude) || (-180...180 ~= longitude) {
-//
-//        } else {
-//            // create the alert
-//                    let alert = UIAlertController(title: "My Title", message: "This is my message.", preferredStyle: UIAlertController.Style.alert)
-//
-//                    // add an action (button)
-//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-//
-//                    // show the alert
-//                    self.present(alert, animated: true, completion: nil)
-//
-//        }
