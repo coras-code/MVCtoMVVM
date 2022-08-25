@@ -15,10 +15,11 @@ protocol AddSightingDelegate {
 
 class AddSightingViewController: UIViewController {
     
-    let locationManager = CLLocationManager()
+    let addSightingViewModel = AddSightingViewModel()
     var delegate: AddSightingDelegate?
-    var birdNames = [String]()
     var namePickerView = UIPickerView()
+    let locationManager = CLLocationManager()
+    var location: CLLocation?
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var latitudeTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
@@ -26,16 +27,17 @@ class AddSightingViewController: UIViewController {
     @IBOutlet weak var numberOfSightingsTextField: UITextField!
     @IBOutlet weak var coordButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //MOVE TO CORE DATA
-        //Hack - list of offical bird names using another api
-        Service.shared.fetchBirds{(birds, err) in
-            if let birds = birds {
-                self.birdNames = birds.map({return $0.comName}).sorted(by: <)
-                self.namePickerView.reloadAllComponents()
-            }
+        //spinner.isHidden = true
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        
+        
+        addSightingViewModel.fetchExampleBirdNames() {
+            self.spinner.stopAnimating()
         }
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -43,6 +45,15 @@ class AddSightingViewController: UIViewController {
         namePickerView.delegate = self
         namePickerView.dataSource = self
         nameTextField.inputView = namePickerView
+    }
+    
+    func updateCoords() {
+      if let location = location {
+        latitudeTextField.text = String(format: "%.8f",
+                                    location.coordinate.latitude)
+        longitudeTextField.text = String(format: "%.8f",
+                                     location.coordinate.longitude)
+      }
     }
     
     
@@ -53,13 +64,24 @@ class AddSightingViewController: UIViewController {
     }
     
     @IBAction func locationButtonPressed(_ sender: UIButton) {
-        convertCoordsToLocation()
-        numberOfSightingsTextField.becomeFirstResponder()
+        
+        if let latitude = latitudeTextField.text, let longitude = longitudeTextField.text  {
+            spinner.startAnimating()
+            addSightingViewModel.convertCoordsToLocation(lat: latitude, lon: longitude) { (locationDetails) in
+                self.locationTextField.isEnabled = true
+                self.locationTextField.text = locationDetails
+                self.spinner.stopAnimating()
+                self.numberOfSightingsTextField.becomeFirstResponder() //Indicate to the user its loading
+            }
+        } else {} //user error - fields are empty
+        
     }
     
     @IBAction func save() {
         //make sure that it is not possible for this to be nil, validation/user input errors
-        let sighting = Bird(comName: nameTextField.text!, locName: locationTextField.text ?? "Unknown", howMany: Int(numberOfSightingsTextField.text!), lat: Double(latitudeTextField.text!) ?? 0, lng: Double(longitudeTextField.text!) ?? 0)
+        //These default values are to make sure the server rules are satisfied (i.e no nil values), however a better way of dealing with this would be displaying a error to the user that does not let them save with empty fields
+        spinner.startAnimating()
+        let sighting = Bird(comName: nameTextField.text!, locName: locationTextField.text ?? "Unknown", howMany: Int(numberOfSightingsTextField.text ?? "0") , lat: Double(latitudeTextField.text!) ?? 0, lng: Double(longitudeTextField.text!) ?? 0)
         
         guard let data = try? JSONEncoder().encode(sighting) else {
             fatalError("Error encoding Sighting!")
@@ -71,17 +93,21 @@ class AddSightingViewController: UIViewController {
         Service.shared.load(resource: sightingResource){ (bird, err) in //pass in default resource
             if let err = err {
             print("Failed to post sighting:", err.localizedDescription)
-               return
+                self.spinner.stopAnimating()
+                return
             }
             
             guard bird != nil else {
                 print("Unexpected response returned from server")
+                
+                self.spinner.stopAnimating()
                 return
             }
             
             if let delegate = self.delegate {
                 self.dismiss(animated: true, completion: nil)
                 delegate.didSaveSighting()
+                self.spinner.stopAnimating()
             }
         }
     }
@@ -94,23 +120,18 @@ extension AddSightingViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return birdNames.count
+        return addSightingViewModel.exampleBirdNames.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if birdNames.count > 1 {
-            return birdNames[row]
-        } else {
-            return ""
-        }
+            return addSightingViewModel.exampleBirdNames[row]
     }
 }
 
 extension AddSightingViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        nameTextField.text = birdNames[row]
+        nameTextField.text = addSightingViewModel.exampleBirdNames[row]
         latitudeTextField.becomeFirstResponder()
-       // nameTextField.resignFirstResponder() //don't know if i like this behaviour
     }
 }
 
@@ -118,57 +139,17 @@ extension AddSightingViewController: UIPickerViewDelegate {
 extension AddSightingViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
+        if locations.last != nil {
+            location = locations.last
+            updateCoords()
             locationManager.stopUpdatingLocation()
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
-            latitudeTextField.text = String(format: "%.10f", latitude)
-            longitudeTextField.text = String(format: "%.10f", longitude)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
-    
-    func convertCoordsToLocation() {
-        if latitudeTextField.text != nil && longitudeTextField.text != nil  {
-            let latitude = latitudeTextField.text
-            let longitude = longitudeTextField.text
-        
-        let urlString = "https://api.geoapify.com/v1/geocode/reverse?lat=\(latitude!)&lon=\(longitude!)&apiKey=d8f17f25925a470ab4e3247cd84167fa"
-            
-        let geoCodingResource = Resource<LocationData>(urlString: urlString)
-
-            Service.shared.load(resource: geoCodingResource){ (location, err) in
-                if let err = err {
-                 print("Failed to figure out location:", err.localizedDescription)
-                    return
-                }
-
-                    self.locationTextField.isEnabled = true
-                    var locationDetails = [String]()
-                    
-                    if let location = location?.features[0].properties {
-                        if let housenumber = location.housenumber {
-                            locationDetails.append(housenumber)
-                        }
-                        
-                        if let name = location.name {
-                            locationDetails.append(name)
-                        }
-                        
-                        if let country = location.country {
-                            locationDetails.append(country)
-                        }
-                    }
-
-                    self.locationTextField.text = locationDetails.joined(separator: " ")
-                }
-            }
-        }
-
-    }
+}
 
 
 //MARK: - Valdiation and user feedback
